@@ -1,24 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+import Home from './components/Home/Home';
 
+const Container= styled.div`
+  background:url("https://raw.githubusercontent.com/safak/youtube23/3d-portfolio/public/img/bg.jpeg");
+  height:100vh;
+  color:red;
+`
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Home/>
+    </Container>
   );
 }
 
