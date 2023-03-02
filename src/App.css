@@ -1,5 +1,9 @@
 *{
   margin: 0;
   padding: 0;
-  
+}
+
+.main{
+  background:url("https://raw.githubusercontent.com/safak/youtube23/3d-portfolio/public/img/bg.jpeg");
+  height:100vh;
 }
