@@ -1,10 +1,21 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import styled from "styled-components";
-import Moon from '../../assets/moon.png'
-const Section = styled.div`
-    height:100vh
-`;
+import Moon from '../../assets/moon.png';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import CloseIcon from '@mui/icons-material/Close';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const Container = styled.div`
 display:flex;
@@ -67,10 +78,25 @@ const Img = styled.img`
     }
   }
 `
+
+const Mstart = styled.div`
+display:flex;
+justify-content:space-between;
+padding-bottom:20px;
+`
+
+const Mbody = styled.ul`
+li{
+  padding-bottom:18px;
+}
+`
+
 const Home = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
-    <Section>
-        <Navbar/>
         <Container>
             <Left>
                 <div>
@@ -80,14 +106,35 @@ const Home = () => {
                     <h3>Experienced and self motivated</h3>
                     <h3>Proffisional with 1yr+ of industrty experience</h3>
                     <h3>Have developed several web apps</h3>
-                    <Button>ABOUT ME</Button>
+                    <Button onClick={handleOpen}>ABOUT ME</Button>
                 </div>
             </Left>
             <Right>
                 <Img src={Moon}/>
             </Right>
+
+            <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Mstart>
+                <h2>About me</h2>
+                <CloseIcon onClick={handleClose}/>
+              </Mstart>
+              <Mbody>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+                <li>Proffisional with 1yr+ of industrty experience</li>
+              </Mbody>
+            </Box>
+          </Modal>
         </Container>
-    </Section>
   )
 }
 

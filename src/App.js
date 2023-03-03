@@ -1,16 +1,16 @@
 import './App.css';
-import styled from 'styled-components';
-import Home from './components/Home/Home';
+import React from 'react'
+import Footer from './components/Footer/Footer';
+import Router from './router/index';
 
-// const Container= styled.div`
-//   background:url("https://raw.githubusercontent.com/safak/youtube23/3d-portfolio/public/img/bg.jpeg");
-//   height:100vh;
-// `
 function App() {
   return (
+    <>
     <div className='main'>
-      <Home/>
+      <Router/>
     </div>
+    <Footer/>
+    </>
   );
 }
 

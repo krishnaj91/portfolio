@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import MyLogo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Section = styled.div`
   display: flex;
   justify-content: center;
   color: white;
+  padding-top:15px;
 `;
 
 const Container = styled.div`
@@ -36,7 +38,6 @@ const Links = styled.li`
 
   :hover {
     color: #da4ea2;
-    text-decoration: underline;
     cursor: pointer;
   }
 `;
@@ -63,16 +64,17 @@ const Button = styled.button`
 `;
 
 const Navbar = () => {
+  let navigate = useNavigate()
   return (
     <Section>
       <Container>
         <Left>
           <Logo src={MyLogo} />
           <List>
-            <Links>HOME</Links>
-            <Links>SKILLS</Links>
+            <Links onClick={()=>{navigate('/')}}>HOME</Links>
+            <Links onClick={()=>{navigate('/skills')}}>SKILLS</Links>
             <Links>WORKS</Links>
-            <Links>CONTACT</Links>
+            <Links onClick={()=>{navigate('/contact')}}>CONTACT</Links>
           </List>
         </Left>
         <Right>
